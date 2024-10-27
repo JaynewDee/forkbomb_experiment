@@ -11,9 +11,9 @@ Python scripting handles creation of images and containers for the respective la
 2) From project root: `./run.py <language> <mem_limit> <cpu_limit>`  
     - Only the `<language>` argument is required.
     - Optional: `<mem_limit>`
-        - Examples: `100m`(100 MB) | `2g` (2 GB)  
+        - Examples: `100m` (100 MB) | `2g` (2 GB)  
     - Optional: `<cpu_limit>`
-        - Examples: `1`(1 CPU Core) | `3`(3 CPU Cores)
+        - Examples: `1` (1 CPU Core) | `3` (3 CPU Cores)
 
 ## Helpful Commands
 

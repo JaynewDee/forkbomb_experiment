@@ -1,9 +1,13 @@
+"""
+A central location for any task-agnostic python code used by the project.
+"""
+
 import os
 import subprocess
 import sys
 import time
 
-LANGUAGES = ["rust", "powershell", "bash"]
+LANGUAGES = ["rust", "powershell", "bash", "javascript"]
 
 
 def print_available_languages():
