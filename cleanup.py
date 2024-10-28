@@ -4,7 +4,7 @@ A convenience script for cleaning up any images and containers used by the proje
 
 The <language>_fork_bomb image-naming convention makes this possible.
 
-Usage: `./reset.py`
+Usage: `./cleanup.py`
 """
 
 from lib import (
@@ -14,7 +14,7 @@ from lib import (
     LANGUAGES
 )
 
-def reset():
+def cleanup():
     images = [lang + "_fork_bomb" for lang in LANGUAGES]
 
     for img in images:
@@ -23,4 +23,4 @@ def reset():
             delete_image(img)
 
 
-if __name__ == "__main__": reset()
+if __name__ == "__main__": cleanup()

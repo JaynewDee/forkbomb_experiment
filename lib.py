@@ -81,13 +81,28 @@ def delete_containers_by_image(img_name):
 def delete_image(img_name):
     run_command(["docker", "rmi", img_name]) 
 
+def monitor_container_stats(container_id):
+    """Run 'docker stats' command and display output."""
+    try:
+        # Run docker stats in a continuous loop
+        while True:
+            # Use subprocess to call 'docker stats' with the container ID
+            result = subprocess.run(
+                ["docker", "stats", container_id, "--no-stream", "--format", "{{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"],
+                capture_output=True,
+                text=True
+            )
+            print(result.stdout.strip())
+            time.sleep(1)  # Delay between stats updates
+    except KeyboardInterrupt:
+        print("\nStopped monitoring container stats.")
 
 def time_container_run_duration(container_id):
     # Time the duration that container is in "running" state
     start_time = time.time() 
     while True:
         running_state = run_command(["docker", "inspect", "-f", "{{.State.Running}}", container_id])
-        print("Container is running ... ")
+        # print("Container is running ... ")
         if running_state != "true":
             break
         time.sleep(0.1)
