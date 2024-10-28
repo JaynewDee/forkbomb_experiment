@@ -19,7 +19,13 @@ Python scripting handles creation of images and containers for the respective la
 
 ### Docker
 #### Run a container in an interactive bash shell
+This is handy for troubleshooting errors with execution of the copied code
 > `docker run -it --entrypoint="bash" <image_name>`
 
 #### Build docker image from Dockerfile
 > `docker build -t <image_name> -f Dockerfile .`
+
+#### Examine stdout of a container
+This is handy for confirming that the docker container failed as a result of the code itself and not something else such as a failure to execute.  
+Uncomment the `remove_container(container_id)` line in `run.py` to keep the container alive after testing so that the container's id can be used to check the logs.
+> `docker logs <container_id>`
