@@ -7,7 +7,7 @@ import subprocess
 import sys
 import time
 
-LANGUAGES = ["rust", "powershell", "bash", "javascript", "c", "cpp", "cs", "python"]
+LANGUAGES = ["rust", "powershell", "bash", "javascript", "c", "cpp", "cs", "python", "go"]
 
 
 def print_available_languages():
