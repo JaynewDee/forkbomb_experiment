@@ -7,7 +7,7 @@ import subprocess
 import sys
 import time
 
-LANGUAGES = ["rust", "powershell", "bash", "javascript", "c", "cpp"]
+LANGUAGES = ["rust", "powershell", "bash", "javascript", "c", "cpp", "cs", "python"]
 
 
 def print_available_languages():
@@ -32,9 +32,13 @@ def run_command(command):
 
 def check_image_exists(img_name):
     try:
-        return run_command(["docker", "images", "-q", img_name])
+        id = run_command(["docker", "images", "-q", img_name])
+        if len(id) == 0:
+            return False
+        else:
+            return True
     except SystemExit:
-        return ""
+        return False
 
 
 def rebuild_image(img_name, lang):
