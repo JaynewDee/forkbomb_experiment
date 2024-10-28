@@ -2,7 +2,7 @@
 """
 A convenience script for cleaning up any images and containers used by the project.
 
-The <language>_fork_bomb image naming convention makes this possible.
+The <language>_fork_bomb image-naming convention makes this possible.
 
 Usage: `./reset.py`
 """

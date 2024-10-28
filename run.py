@@ -80,7 +80,8 @@ def run():
         print(f"{LANGUAGE} fork bomb crashed the container in {runtime:.2f} seconds.")
     finally:
         if CONTAINER_ID:
-            remove_container(CONTAINER_ID)
+            pass
+            # remove_container(CONTAINER_ID)
 
 
 if __name__ == "__main__": run()
