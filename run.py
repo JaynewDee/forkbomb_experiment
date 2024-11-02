@@ -77,7 +77,9 @@ def run():
     global MEMORY_LIMIT
     global CPU_LIMIT
 
-    if len(sys.argv) < 2:
+    arg_count = len(sys.argv)
+
+    if arg_count < 2:
         print("Usage: python run.py <language> <memory_limit=1g> <cpus_limit=1>")
         print_available_languages()
         sys.exit(1)
@@ -90,10 +92,10 @@ def run():
 
     IMAGE_NAME = f"{LANGUAGE}_fork_bomb"
 
-    if (len(sys.argv) > 2):
+    if arg_count > 2:
         MEMORY_LIMIT = sys.argv[2]
     
-    if (len(sys.argv) > 3):
+    if arg_count > 3:
         CPU_LIMIT = sys.argv[3]
 
     try:
@@ -114,8 +116,8 @@ def run():
         print(f"EXIT CODE: {exit_code}")
     finally:
         if CONTAINER_ID:
-            pass
             # remove_container(CONTAINER_ID)
+            pass
         stop_event.set()
         if stats_thread:
             stats_thread.join()
